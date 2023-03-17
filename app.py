@@ -6,7 +6,7 @@ import bcrypt
 
 from pymongo import MongoClient
 
-client = MongoClient('mongodb+srv://test:sparta@cluster0.alhagr5.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient('몽고DB주소')
 db = client.dbsparta
 
 
