@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <title>VIVE ENTERTAINMENT</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+          rel="stylesheet"/>
+    <style>
+        * {
+            font-family: "Noto Serif KR", serif;
+        }
+
+        /* 윤수님 */
+        .logo-wrap {
+            color: #fff;
+            font-size: 27px;
+            font-weight: 900;
+            background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)),
+            url("https://media.istockphoto.com/id/1204304072/ko/%EC%82%AC%EC%A7%84/%EB%B9%88-%EC%99%80%EC%9D%B4%EB%93%9C-%ED%99%94%EB%A9%B4-%EA%B2%80%EC%9D%80-%EA%B8%88%EC%9A%94%EC%9D%BC-%ED%9D%B0%EC%83%89-%EB%B6%84%ED%95%84-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EA%B7%B8%EB%9E%98%ED%94%BD%EC%97%90-%EB%8C%80%ED%95%9C-%ED%95%99%EA%B5%90-%ED%8C%8C%EB%85%B8%EB%9D%BC%EB%A7%88-%EB%B0%B0%EA%B2%BD-%ED%99%94%EB%A9%B4%EC%9C%BC%EB%A1%9C-%EB%8F%8C%EC%95%84-%EB%8C%80%ED%95%99-%EA%B0%9C%EB%85%90%EC%9D%98-%EC%8B%A4%EC%A0%9C-%EC%B9%A0%ED%8C%90-%EB%B0%B0%EA%B2%BD-%ED%85%8D%EC%8A%A4%EC%B2%98-%EB%B9%88-%EC%B4%88%ED%98%84%EC%8B%A4%EC%A0%81-%EC%9D%B8-%EB%B0%A9-%EB%B2%BD-%EC%B9%A0%ED%8C%90-%EC%B0%BD%EB%B0%B1%ED%95%9C.jpg?s=170667a&w=0&k=20&c=3yShpeqJwgjGA4aIWza70goQBHkq6Nx74KFG41xKirE=");
+
+            background-position: center 30%;
+            width: absolute;
+            height: 200px;
+        }
+
+        .copy {
+            margin: 25px auto auto auto;
+            text-align: center;
+            color: #fff;
+        }
+
+        .box-wrap {
+            width: 100vw;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box {
+            position: relative;
+            background: #000;
+            width: 280px;
+            height: 210px;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .box img {
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .box .info {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            color: #fff;
+            width: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .box .info h3 {
+            font-size: 30px;
+            line-height: 28px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding-bottom: 1px;
+        }
+
+
+        .box:hover .info {
+            opacity: 1;
+        }
+
+        .box:hover img {
+            opacity: 0.2;
+        }
+
+        .box:hover:before {
+            width: 60px;
+        }
+
+        .box:hover:after {
+            height: 60px;
+        }
+
+        .comment {
+            background-color: transparent;
+            width: 700px;
+
+            margin: 20px auto 20px auto;
+            padding: 20px 20px 20px 20px;
+            box-shadow: 0 0 3px 0 gray;
+        }
+
+        .mybtn {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 20px;
+        }
+
+        .mypost {
+            width: 95%;
+            max-width: 500px;
+            margin: 150px auto 20px auto;
+
+            box-shadow: 0px 0px 3px 0px black;
+            padding: 20px;
+        }
+
+        .mypost > button {
+            margin-top: 15px;
+        }
+
+        .mycards {
+            width: 95%;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .mycards > .card {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .mypic {
+            width: 100%;
+            height: 300px;
+            background-color: transparent;
+            color: #000;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 지현님 */
+        button {
+            padding: 15px;
+            font-size: 12px;
+            background: indianred;
+            color: #FFF;
+            border: none
+        }
+
+        .subheading {
+            font-style: italic
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: none;
+            overflow: auto;
+            background-color: #000000;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+        }
+
+        .modal-window {
+            position: relative;
+            top: 50%;
+            left: 50%;
+
+            width: 800px;
+            height: 500px;
+
+            padding: 20px;
+
+            text-align: center;
+
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        .modal-window.small {
+            width: 75%;
+        }
+
+        .modal-window.large {
+            width: 75%;
+        }
+
+        .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: rgba(0, 0, 0, 0.3);
+            height: 30px;
+            width: 30px;
+            font-size: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000000;
+            cursor: pointer;
+        }
+
+        .open {
+            display: block;
+        }
+
+        /*모달 내부 요소 꾸미기*/
+        .modal-image {
+            width: 300px;
+            height: 420px;
+
+            float: left;
+            margin: 10px auto auto auto;
+
+            background-size: cover;
+            background-position: center;
+
+            border-radius: 10px;
+        }
+
+        .modal-profile {
+            width: 460px;
+            height: 170px;
+
+            float: left;
+            margin: 10px auto auto auto;
+        }
+
+        .modal-profile-name {
+            margin: 10px auto auto auto;
+            font-size: 30px;
+        }
+
+        .modal-profile-text {
+            margin: 10px 10px auto 10px;
+        }
+
+        .modal-dis {
+            width: 460px;
+            height: 250px;
+
+            float: left;
+        }
+
+        .modal-dis-title {
+            margin: 10px auto auto auto;
+            font-size: 30px;
+        }
+
+        .modal-dis-img {
+            margin: 30px auto auto auto;
+        }
+        /*좋아요*/
+        .like-content {
+            display: inline-block;
+            width: 100%;
+            margin: 40px 0 0;
+            padding: 40px 0 0;
+            font-size: 18px;
+            border-top: 10px dashed #eee;
+            text-align: center;
+        }
+
+        .like-content span {
+            color: #9d9da4;
+            font-family: monospace;
+        }
+
+        .like-content .btn-secondary {
+            display: block;
+            margin: 40px auto 0px;
+            text-align: center;
+            background: #ed2553;
+            border-radius: 3px;
+            box-shadow: 0 10px 20px -8px rgb(240, 75, 113);
+            padding: 10px 17px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            color: #ffffff;
+            text-decoration: none;
+            -webkit-transition: 0.3s ease;
+            transition: 0.3s ease;
+        }
+
+        .like-content .btn-secondary:hover {
+            transform: translateY(-3px);
+        }
+
+        .like-content .btn-secondary .fa {
+            margin-right: 5px;
+        }
+
+        .animate-like {
+            animation-name: likeAnimation;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            animation-duration: 0.65s;
+        }
+
+        @keyframes likeAnimation {
+            0% {
+                transform: scale(30);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+        /*댓글창*/
+        .mydelete {
+            background-color: transparent;
+            width: 700px;
+
+            margin: 20px auto 20px auto;
+            padding: 20px 20px 20px 20px;
+            box-shadow: 0 0 3px 0 gray;
+        }
+
+        .mybtns {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 20px;
+        }
+
+        .mybtns>button {
+            margin-right: 10px;
+        }
+
+        .table {
+            background-color: transparent;
+            width: 700px;
+
+            margin: 20px auto 20px auto;
+            padding: 20px 20px 20px 20px;
+            box-shadow: 0 0 3px 0 gray;
+        }
+
+        .mybtn {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+         // 병진님
+        function close_popup() {
+            $("#popup").fadeOut(200);
+            show_comment();
+        }
+
+        $(document).ready(function () {
+            show_comment()
+            show_like();
+            close_box();
+        });
+
+        function save_comment() {
+
+            let name = $('#name').val()
+            let comment = $('#comment').val()
+            let pw = $('#passward').val()
+            let formData = new FormData();
+
+            formData.append("name_give", name);
+            formData.append("comment_give", comment);
+            formData.append("pw_give", pw);
+
+            fetch('/guestbook', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+                alert(data["msg"]);
+                window.location.reload()
+            });
+        }
+
+        function show_comment() {
+            fetch('/guestbook').then((res) => res.json()).then((data) => {
+                let rows = data['result']
+                $('#order-box').empty()
+                rows.forEach((a) => {
+                    let name = a['name']
+                    let comment = a['comment']
+                    let num = a['num']
+
+                    let temp_html = `<tr>
+                            <td>${name}</td>
+                            <td>${comment}</td>
+                            <td><button type="button" class="btn btn-outline-dark" onclick="open_box(${num})">삭제</button></td>
+                        </tr>`
+
+                    $('#order-box').append(temp_html)
+                });
+            })
+        }
+        // 지현님
+        <!--모달 작동 코드. script에 그대로 건들지말고 붙여주시면 됩니다-->
+        document.addEventListener('click', function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+
+            if (target.hasAttribute('data-toggle') && target.getAttribute('data-toggle') == 'modal') {
+                if (target.hasAttribute('data-target')) {
+                    var m_ID = target.getAttribute('data-target');
+                    document.getElementById(m_ID).classList.add('open');
+                    e.preventDefault();
+                }
+            }
+
+            // Close modal window with 'data-dismiss' attribute or when the backdrop is clicked
+            if ((target.hasAttribute('data-dismiss') && target.getAttribute('data-dismiss') == 'modal') || target.classList.contains('modal')) {
+                var modal = document.querySelector('[class="modal open"]');
+                modal.classList.remove('open');
+                e.preventDefault();
+            }
+        }, false);
+
+        //좋아요
+        $(function () {
+            $(document).one('click', '.like-review', function (e) {
+                $(this).html('<i class="fa fa-heart" aria-hidden="true"></i> You liked this');
+                $(this).children('.fa-heart').addClass('animate-like');
+            });
+        });
+
+
+        function save_like() {
+            let formData = new FormData();
+            formData.append("like_give", 1);
+
+            fetch('/like', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+                console.log(data)
+                alert(data["msg"]);
+                window.location.reload()
+            });
+        }
+
+        function show_like() {
+            fetch('/like').then((res) => res.json()).then((data) => {
+                let rows = data['likecnt']
+                like = rows[0]['like']
+                console.log(like)
+                temp_html = `<span>
+                                ${like} people likes this page.
+                            </span>`
+                $('#like').empty()
+                $('#like').append(temp_html)
+            })
+        }
+        /*삭제버튼을 누르면 비밀번호 입력창이 생기고, 버튼에 할당된 키를 save_delete함수로 넘긴다*/
+        function open_box(num) {
+            temp_html = `<div class="mydelete">
+                            <div class="mb-3 row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="passward_check">
+                                </div>
+                            </div>
+
+                            <div class="mybtns">
+                                <button onclick="save_delete(${num})" type="button" class="btn btn-dark">삭제하기</button>
+                                <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+                            </div>
+
+                        </div>`
+            $('#delete-box').append(temp_html)
+        }
+        function close_box() {
+            $('#delete-box').empty()
+        }
+
+        /*delete : 삭제버튼에 할당된 숫자(댓글번호)를 가져와서 비밀번호와 댓글번호를 app.py로 보냅니다.*/
+
+        function save_delete(num) {
+            let pw = $('#passward_check').val()
+            let formData = new FormData();
+            formData.append("num_give", num);
+            formData.append("pw_give", pw);
+
+            fetch('/delete', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+                //console.log(data)
+                alert(data["msg"])
+                window.location.reload()
+            });
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="logo-wrap">
+        <h1 class="logo">V I V E</h1>
+        <div class="copy">
+            <h1>VIVE ENTERTAINMENT</h1>
+        </div>
+    </div>
+    <div class="mypic">
+        <h1>WE BELIEVE IN SPARTA</h1>
+    </div>
+
+
+    <!-- 윤수님 -->
+    <div class="box-wrap">
+
+        <div class="box">
+            <div class="img">
+                <<img src="{{url_for('static', filename = '/img/1-profile.jpg')}}" alt="Hover Effect"
+                      data-target="artistModal-1" data-toggle="modal">
+            </div>
+            <div class="info">
+                <h3>윰수</h3>
+            </div>
+        </div>
+        <div class="box">
+            <div class="img">
+                <img src="{{url_for('static', filename = '/img/2-profile.jpg')}}" alt="Hover Effect"
+                     data-target="artistModal-2" data-toggle="modal">
+            </div>
+            <div class="info">
+                <h3>내일밤</h3>
+            </div>
+        </div>
+        <div class="box">
+            <div class="img">
+                <img src="{{url_for('static', filename = '/img/3-profile.jpg')}}" alt="Hover Effect"
+                     data-target="artistModal-3" data-toggle="modal">
+            </div>
+            <div class="info">
+                <h3>백지</h3>
+            </div>
+        </div>
+        <div class="box">
+            <div class="img">
+                <img src="{{url_for('static', filename = '/img/4-profile.jpg')}}" alt="Hover Effect"
+                     data-target="artistModal-4" data-toggle="modal">
+            </div>
+            <div class="info">
+                <h3>이정민</h3>
+            </div>
+        </div>
+        <div class="box">
+            <div class="img">
+                <img src="{{url_for('static', filename = '/img/5-profile.jpg')}}" alt="Hover Effect"
+                     data-target="artistModal-5" data-toggle="modal">
+            </div>
+            <div class="info">
+                <h3>연탄</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- 모달 팝업 본문들. 각 모달이 들어가는 태그에 data-target="artistModal-숫자" data-toggle="modal"넣기 -->
+    <div id="artistModal-1" class="modal">
+        <div class="modal-window">
+            <div class="modal-window">
+                <span class="close" data-dismiss="modal">&times;</span>
+                <div class="modal-title" style="font-size: 20px">Artist Profile</div>
+                <div class="modal-image" style="background-image: url(../static/img/1-profile.jpg)" ;></div>
+                <div class="modal-profile">
+                    <div class="modal-profile-name" style="margin-left: 15px">
+                        윰수
+                    </div>
+                    <div class="modal-profile-text" style="margin-left: 15px">
+                        배우고 싶은 게 많은 대학생입니다~
+                        <br>앞으로 다같이 쑥쑥 성장해가요 &#x1F604;<br/>
+                    </div>
+                </div>
+                <div class="modal-dis">
+                    <div class="modal-dis-title" style="margin-left: 15px">
+                        디스코그래피
+                    </div>
+                    <div class="modal-dis-img" style="margin-left: 15px">
+                        <img src="{{url_for('static', filename = '/img/1-dis-1.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/1-dis-2.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/1-dis-3.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/1-dis-4.jpg')}}" width="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="artistModal-2" class="modal">
+        <div class="modal-window">
+            <div class="modal-window">
+                <span class="close" data-dismiss="modal">&times;</span>
+                <div class="modal-title" style="font-size: 20px">Artist Profile</div>
+                <div class="modal-image" style="background-image: url(../static/img/2-profile.jpg)"></div>
+                <div class="modal-profile">
+                    <div class="modal-profile-name" style="margin-left: 15px">
+                        내일밤
+                    </div>
+                    <div class="modal-profile-text" style="margin-left: 15px">
+                        안녕하세요. 개발을 취미로 하는 아티스트 내일밤 입니다.
+                        <br>매일매일 조금씩 성장하고 <br/>
+                        자유를 만끽하며 살아가고 싶습니다.
+                    </div>
+                </div>
+                <div class="modal-dis">
+                    <div class="modal-dis-title" style="margin-left: 15px">
+                        디스코그래피
+                    </div>
+                    <!--디스코그래피 사진 변경 : img src에 이미지 링크 넣기, a href에 이동할 링크 넣기.-->
+                    <div class="modal-dis-img" style="margin-left: 15px">
+                        <img src="{{url_for('static', filename = '/img/2-dis-1.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/2-dis-2.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/2-dis-3.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/2-dis-4.jpg')}}" width="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="artistModal-3" class="modal">
+        <div class="modal-window">
+            <div class="modal-window">
+                <span class="close" data-dismiss="modal">&times;</span>
+                <div class="modal-title" style="font-size: 20px">Artist Profile</div>
+                <div class="modal-image" style="background-image: url(../static/img/3-profile.jpg)"></div>
+                <div class="modal-profile">
+                    <div class="modal-profile-name" style="margin-left: 15px">
+                        백지
+                    </div>
+                    <div class="modal-profile-text" style="margin-left: 15px">
+                        백지처럼 새하얀 배경지식 채워가기 프로젝트!
+                        <br>4개월 동안 함께 열심히 달려나가면서<br/>
+                        성장할 수 있기를 고대하고 있습니다.
+                    </div>
+                </div>
+                <div class="modal-dis">
+                    <div class="modal-dis-title" style="margin-left: 15px">
+                        디스코그래피
+                    </div>
+                    <!--디스코그래피 사진 변경 : img src에 이미지 링크 넣기, a href에 이동할 링크 넣기.-->
+                    <div class="modal-dis-img" style="margin-left: 15px">
+                        <img src="{{url_for('static', filename = '/img/3-dis-1.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/3-dis-2.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/3-dis-3.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/3-dis-4.jpg')}}" width="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="artistModal-4" class="modal">
+        <div class="modal-window">
+            <div class="modal-window">
+                <span class="close" data-dismiss="modal">&times;</span>
+                <div class="modal-title" style="font-size: 20px">Artist Profile</div>
+                <div class="modal-image" style="background-image: url(../static/img/4-profile.jpg)"></div>
+                <div class="modal-profile">
+                    <div class="modal-profile-name" style="margin-left: 15px">
+                        이정민
+                    </div>
+                    <div class="modal-profile-text" style="margin-left: 15px">
+                        여행 다니는 것을 좋아합니다!
+                        <br>새로운 스포츠, 혹은 운동을 찾아다니고 있습니다!<br/>
+                        장래희망은 고양이 집사입니다!
+                    </div>
+                </div>
+                <div class="modal-dis">
+                    <div class="modal-dis-title" style="margin-left: 15px">
+                        디스코그래피
+                    </div>
+                    <!--디스코그래피 사진 변경 : img src에 이미지 링크 넣기, a href에 이동할 링크 넣기.-->
+                    <div class="modal-dis-img" style="margin-left: 15px">
+                        <img src="{{url_for('static', filename = '/img/4-dis-1.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/4-dis-2.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/4-dis-3.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/4-dis-4.jpg')}}" width="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="artistModal-5" class="modal">
+        <div class="modal-window">
+            <div class="modal-window">
+                <span class="close" data-dismiss="modal">&times;</span>
+                <div class="modal-title" style="font-size: 20px">Artist Profile</div>
+                <div class="modal-image" style="background-image: url(../static/img/5-profile.jpg)"
+                     style="background-image: url(http://t1.daumcdn.net/movie/3f9aae261c6ad6662e3bc4346821e4357ddff112)"></div>
+                <div class="modal-profile">
+                    <div class="modal-profile-name" style="margin-left: 15px">
+                        연탄
+                    </div>
+                    <div class="modal-profile-text" style="margin-left: 15px">
+                        코딩 신생아입니다!
+                        <br>열심히 배우겠습니다!!<br/>
+                    </div>
+                </div>
+                <div class="modal-dis">
+                    <div class="modal-dis-title" style="margin-left: 15px">
+                        디스코그래피
+                    </div>
+                    <!--디스코그래피 사진 변경 : img src에 이미지 링크 넣기, a href에 이동할 링크 넣기.-->
+                    <div class="modal-dis-img" style="margin-left: 15px">
+                        <img src="{{url_for('static', filename = '/img/5-dis-1.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/5-dis-2.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/5-dis-3.jpg')}}" width="100" style="margin-right: 10px">
+                        <img src="{{url_for('static', filename = '/img/5-dis-4.jpg')}}" width="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- 좋아요 사람 수 -->
+    <div class="like-content">
+        <div id="like">
+            <span>
+                0 people likes this page.
+            </span>
+        </div>
+
+<!-- 좋아요 버튼 -->
+        <button onclick="save_like()" class="btn-secondary like-review">
+            <i class="fa fa-heart" aria-hidden="true"></i> Like
+        </button>
+
+    </div>
+<!-- 댓글 작성창 -->
+    <div class="comment" id="comment_box">
+        <h5>댓글을 작성해주세요</h5>
+        <form>
+            <div class="form-group">
+                <label for="formGroupExampleInput">name</label>
+                <input type="text" class="form-control" id="name" placeholder="name">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">comment</label>
+                <input type="text" class="form-control" id="comment" placeholder="comment">
+            </div>
+            <h5></h5>
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="passward" placeholder="passward">
+                </div>
+            </div>
+
+            <div class="mybtn"><button onclick="save_comment()" type="button" class="btn btn-outline-dark">등록</button>
+            </div>
+        </form>
+    </div>
+<!-- 삭제버튼 누르면 비밀번호 치는 창이 뜨는 박스 -->
+    <div id="delete-box">
+
+    </div>
+
+<!-- 댓글들 -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">name</th>
+                <th scope="col">comment</th>
+                <th scope="col">delete</th>
+            </tr>
+        </thead>
+        <tbody id="order-box">
+
+        </tbody>
+    </table>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4">
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-left p-3" style="background-color: rgba(0, 0, 0, 0.007);">
+
+
+            <div style="text-align: right;">
+                <a href="https://spartacodingclub.kr/" target="_blank">스파르타코딩클럽</a>
+            </div>
+            <div style="text-align: right;">
+            © 2023 Copyright VIVE ENTERTAINMENT
+        </div>
+    </footer>
+</body>
+
+</html>
