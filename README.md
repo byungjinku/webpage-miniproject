@@ -1,5 +1,8 @@
 # webpage-miniproject
 
+### Resume 
+- 엔터테인먼트 웹페이지 구성 컨셉으로 웹사이트 구현 하기
+
 ### Content
 - 프로젝트 컨셉
 - API 명세서 
@@ -8,4 +11,5 @@
 - Difficulty & Resolve
 - 회의록 
 
-![image](https://user-images.githubusercontent.com/66653030/225814445-a69b46cd-bb8c-49bc-9cf3-10ffd1cf0e5f.png)
+![image](https://user-images.githubusercontent.com/66653030/225814641-a56759f9-e743-4dc8-b7c7-44b5ce071d73.png)
+
